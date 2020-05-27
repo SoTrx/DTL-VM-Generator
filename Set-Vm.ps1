@@ -48,7 +48,7 @@ foreach($descr in $VmSettings) {
   Write-Host "Starting job to create a VM named $vmName"
 
   $jobs += $lab | New-AzDtlVm -VmName $vmName -Size $descr.size -StorageType $descr.storageType -CustomImage $imageName -Notes $descr.description `
-          -AsJob
+          -OsType $descr.osType -AsJob
 
   Start-Sleep -Seconds 60
 }
